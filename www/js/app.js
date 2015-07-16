@@ -20,13 +20,12 @@ var app =angular.module('myMovies', ['ionic'])
 
 app.controller('moviesCtrl',function($http,$scope){
     $scope.stories = [];
-    $http.get('http://musicbrainz.org/ws/2/release?label=47e718e1-7ee4-460c-b1cc-1192a841c6e5&offset=12&limit=2&fmt=json    ')
+    $http.get('http://www.omdbapi.com/?t=the+last+ship&y=&plot=short&r=json')
         .success(function(responce){
-            console.log(responce);
-            console.log(responce.releases) ;
-            angular.forEach(responce.releases,function(child){
-                console.log(child.title);
-                $scope.stories.push(child);
-            });
+            console.log('2' + responce.Title);
+            console.log('3' +responce) ;
+            $scope.stories.push(responce);
+
         });
+
 });
